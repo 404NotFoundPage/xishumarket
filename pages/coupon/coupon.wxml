@@ -1,0 +1,34 @@
+<view class='container'>
+  <view class='cou_list clearfix' wx:for='{{datacard}}' wx:key='*this'>
+    <view class='list_le'>
+      <view class='name'>{{item.name}}</view>
+      <view class='time'>有效期：{{item.endtime}}</view>
+      <view class='details'>({{ item.type_msg }}) 满 {{item.limit}} 元可用</view>
+    </view>
+    <view class='after_'></view>
+    <view class='list_ri'>
+      <view class='money'>
+        ¥ <text>{{item.value}}</text>
+      </view>
+      <view class='btn__' bindtap='use'>立即使用</view>
+    </view>
+  </view>
+</view>
+<view class='no_data' wx:if="{{ !datacard }}">
+  <image src='../image/nodata.png'></image>
+  <view class='tip'>暂无可用优惠券</view>
+  <view class='go_food' bindtap='findgood'>去发现美食吧</view>
+</view>
+<!-- 初始化加载中 -->
+<view class='go_zhe' hidden='{{loadFlag}}' class="go_zhe"></view>
+<view class='toastt' hidden='{{loadFlag}}'>
+  <image src='../image/load.gif'></image>
+  <view class='text'>玩命加载中...</view>
+</view>
+<!-- 请求加载中 -->
+<view class='toast1' hidden='{{loadFlag1}}'>
+  <view>
+    <image src='../image/load.gif'></image>
+    <view class='text'>玩命加载中...</view>
+  </view>
+</view>

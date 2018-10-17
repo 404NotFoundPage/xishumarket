@@ -1,0 +1,46 @@
+<!--pages/mycustum/mycustum.wxml-->
+<view class="head">
+    <text>下级客户贡献收益(元)</text>
+    <view>
+        <text>{{totalmoney}}</text>
+        <text bindtap="invitefriends">发展下级分销</text>
+    </view>
+</view>
+<view class="wrap">
+    <view class="item" wx:for="{{datas}}" wx:key="unique">
+        <view>
+            <image src="{{item.headimg}}"></image>
+            <view>
+                <text>{{item.username}}</text>
+                <text>加入时间：{{item.dateline}}</text>
+            </view>
+        </view>
+        <view>
+            <text>{{item.contribution}}</text>
+            <text>总贡献</text>
+        </view>
+    </view>
+</view>
+<!-- 授权板块 -->
+<import src="../template/getpower.wxml"/>
+<template is="getpower" data="{{ powerflag , powerimgurl }}"></template>
+
+<view class="none" hidden="{{ flag }}">没有更多数据了</view>
+
+<view class="mask" bindtap="cancel" hidden="{{inviteflag}}" catchtouchmove="_cancelmove"></view>
+<view class="mask_content" hidden="{{inviteflag}}" catchtouchmove="_cancelmove">
+    <view>
+        <image bindlongpress="longtapsaveImg" mode="aspectFit" src="{{inviteimgurl}}"></image>
+    </view>
+    <text>长按图片保存分享</text>
+    <view>
+        <image src="../image/close_detail.png" bindtap='cancel'></image>
+    </view>
+</view>
+
+<!--初始化加载中-->
+<view class='go_zhe' hidden='{{loadFlag}}'></view>
+<view class='toastt' hidden='{{loadFlag}}'>
+  <image src='../image/load.gif'></image>
+  <view class='text' style='padding:0;'>玩命加载中...</view>
+</view>

@@ -1,0 +1,18 @@
+<view class="item" wx:for="{{datas}}" wx:key="index">
+    <image src="{{item.list_pic_2}}"></image>
+    <view>
+        <view>
+            <text>{{item.title}}</text>
+            <view>
+                <text>+ {{item.salesmoney}}</text>
+                <text wx:if="{{ item.lev == 1 }}">一级奖励</text>
+                <text wx:if="{{ item.lev == 2 }}">二级奖励</text>
+            </view>
+        </view>
+        <text style="color:#676767">{{item.dateline}}</text>
+    </view>
+</view>
+<view class="none" hidden="{{ flag }}">没有更多数据了</view>
+<!-- 授权板块 -->
+<import src="../template/getpower.wxml" />
+<template is="getpower" data="{{ powerflag , powerimgurl }}"></template>

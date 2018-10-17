@@ -1,0 +1,41 @@
+<!-- pages/vip/vip.wxml -->
+<view class="wrap_box">
+    <view class="bg_top">
+        <image src="../image/bg_top.png"></image>
+    </view>
+    <view class="vip_bg">
+        <image src="{{bg_pic}}"></image>
+    </view>
+    <view class="pc_info">
+        <image src="{{userimg}}"></image>
+        <view>
+            <text>{{username}}</text>
+        </view>
+        <text wx:if="{{true}}">{{ vip_num }}</text>
+        <view style="height:0;padding:0"></view>
+    </view>
+    <view class="vip_power">
+        <image src="../image/vip_power.png"></image>
+    </view>
+    <view class="commend_title">
+        <image src="../image/commend_title.png"></image>
+    </view>
+    <view class="commend_list">
+        <view style="margin-bottom:20rpx" wx:for="{{shoplist}}" wx:key="item.id" data-id="{{item.id}}" bindtap="go_goodsdetail">
+            <image mode="aspectFill" src="{{item.list_pic_3}}"></image>
+            <text style="margin-top:10rpx;">
+                <text class="info">{{item.title}}</text>
+            </text>
+            <view>
+                <text><text style="font-size:24rpx;">￥</text>{{item.price}}</text>
+                <text style="margin-left:20rpx;color:#a8aaab">￥{{item.oldprice}}</text>
+            </view>
+        </view>
+    </view>
+
+
+<view class="open" bindtap="open_vip">
+    <image src="../image/VIP_open.png"></image>
+    <p>立即<text wx:if="{{isVip==0}}">开通</text><text wx:if="{{isVip==1}}">续费</text>(￥{{vip_pri}}元/年) >></p>
+</view>
+</view>

@@ -1,0 +1,153 @@
+<!--logs.wxml-->
+<view class="{{is_show?'hiddenScroll':'content'}}">
+  <view class='header'>
+    <image src='{{bg_url}}' class='position'></image>
+  </view>
+  <view class='tab'>
+    <view class="swiper" style='text-align:center;'>
+      <view class="swiper-tab-item {{currentTab==0?'active':''}}" data-current="0" bindtap="clickTab">推荐</view>
+      <view class="swiper-tab-item {{currentTab==1?'active':''}}" data-current="1" bindtap="clickTab">附近</view>
+    </view>
+    <swiper class="tab-content" current="{{currentTab}}" duration="300" bindchange="switchTab" style="height:{{currentTab==0?height1:height2}}px;">
+      <!--第一页  -->
+      <swiper-item>
+        <scroll-view class="scoll-h">
+          <view id='swi_p1'>
+            <view class="item-ans">
+              <view class='tab1'  wx:for="{{datat}}" wx:key="unique" >
+                <view class='top_img' bindtap='go_details' data-id='{{item.id}}'>
+                  <image src='{{item.shop_img}}' mode="aspectFill" class='tab_img'></image>
+                  <view class='icon' wx:if='{{item.rank<=3}}'>
+                    <image src='../image/rank.png' class='icon_num'></image>
+                    <view>{{item.rank}}</view>
+                  </view>
+                  <view class='icon' wx:elif='{{item.rank>3}}'>
+                    <image src='../image/rank1.png' class='icon_num'></image>
+                    <view>{{item.rank}}</view>
+                  </view>
+                </view>
+                <view class='tit_text'>
+                  <view class='txt_shop'>
+                    <view class='name_shop'>{{item.name}}</view>
+                    <view class='peope'>{{item.call_count}}人推荐</view>
+                  </view>
+                  <view class='adress_shop'>
+                    <image src='../image/map_.png' class='map_icon'></image>
+                    <view class='adress'>{{item.address}}</view>
+                  </view>
+                  <view class='distance' wx:if='{{item.distance1>0}}'>{{item.distance1}}KM</view>
+                  <view class='distance' wx:else>{{item.distance1}}</view>
+                  <view wx:if='{{item.goods.id>0}}'>
+                    <view class='h1' ></view>
+                    <view class='bottom_txt' catchtap="jumpgoods" data-id="{{item.goods.id}}">
+                      <span>惠</span>{{item.goods.title}}
+                      <image src='../image/unfold.png'></image>
+                    </view>
+                  </view>
+
+
+                </view>
+              </view>
+            </view>
+          </view>
+        </scroll-view>
+      </swiper-item>
+      <!--第二页  -->
+      <swiper-item>
+        <scroll-view class="scoll-h">
+          <view id='swi_p2'>
+            <view class="item-ans">
+              <view class='tab1' bindtap='go_details' wx:for="{{dataf}}" wx:key="unique" data-id='{{item.id}}'>
+                <view class='top_img'>
+                  <image src='{{item.shop_img}}' class='tab_img'></image>
+                  <!-- <view class='icon' wx:if='{{item.rank<=3}}'>
+                    <image src='../image/rank.png' class='icon_num'></image>
+                    <view>{{item.rank}}</view>
+                  </view>
+                  <view class='icon' wx:elif='{{item.rank>3}}'>
+                    <image src='../image/rank1.png' class='icon_num'></image>
+                    <view>{{item.rank}}</view>
+                  </view> -->
+                </view>
+                <view class='tit_text'>
+                  <view class='txt_shop'>
+                    <view class='name_shop'>{{item.name}}</view>
+                    <view class='peope'>{{item.call_count}}人推荐</view>
+                  </view>
+                  <view class='adress_shop'>
+                    <image src='../image/map_.png' class='map_icon'></image>
+                    <view class='adress'>{{item.address}}</view>
+                  </view>
+                  <view class='distance' wx:if='{{item.distance1>0}}'>{{item.distance1}}KM</view>
+                  <view class='distance' wx:else>{{item.distance1}}</view>
+                  <view wx:if='{{item.goods.id>0}}'>
+                    <view class='h1' ></view>
+                    <view class='bottom_txt' catchtap="jumpgoods" data-id="{{item.goods.id}}">
+                      <span>惠</span>{{item.goods.title}}
+                      <image src='../image/unfold.png'></image>
+                    </view>
+                  </view>
+                </view>
+              </view>
+            </view>
+          </view>
+        </scroll-view>
+      </swiper-item>
+    </swiper>
+
+    <view class='fixed' bindtap='show'> 
+      <image src='../image/join.png'></image>
+      <view>商家入驻</view>
+    </view>
+  </view>
+
+  <!-- <view class='modal' catchtouchmove="true" wx:if="{{is_show}}" style='height:{{heig}}px'> -->
+  <view class='modal_window' wx:if="{{is_show}}">
+    <view class='box'>
+      <view class='yellow_top'>
+        <image src='../image/join.png'></image>
+      </view>
+    </view>
+    <view class='text'>
+      <view class='admission'>
+        <view class='title'>商家入驻申请</view>
+      </view>
+      <view class='txt'>
+        如果您是绵阳优质吃喝玩乐类商户，想入驻到“西蜀优选好店”平台，详情可拨打电话或微信咨询。
+      </view>
+      <view class='h1'></view>
+      <view class='phne'>
+        <image src='../image/ph1.png'></image>
+        <view class='number'>{{JOIN_PHONE}}</view>
+        <button data-reply-phone="{{JOIN_PHONE}}" bindtap="call">拨打</button>
+      </view>
+      <view class='weixin'>
+        <image src='../image/weixin.png'></image>
+        <view class='number'>{{JOIN_WEIXIN}}</view>
+        <button bindtap="copy">复制</button>
+      </view>
+    </view>
+    <view class='close' bindtap='hide'>
+      <image src='../image/close.png'></image>
+    </view>
+  </view>
+  <!-- </view> -->
+</view>
+<view class='zhe' wx:if="{{is_show}}"></view>
+
+<!--初始化加载中-->
+<view class='go_zhe' hidden='{{loadFlag}}'></view>
+<view class='toastt' hidden='{{loadFlag}}'>
+  <image src='../image/load.gif'></image>
+  <view class='text' style='padding:0;'>玩命加载中...</view>
+</view>
+<!--请求加载中  -->
+<view class='toast1' hidden='{{loadFlag1}}'>
+  <view>
+    <image src='../image/load.gif'></image>
+    <view class='text' style='padding:0;'>玩命加载中...</view>
+  </view>
+</view>
+<!-- 授权板块 -->
+<import src="../template/getpower.wxml"/>
+<template is="getpower" data="{{ powerflag , powerimgurl }}"></template>

@@ -1,0 +1,87 @@
+<view class='conte' style='height:{{height}}px;'>
+  <view class='my_top'>
+    <image class='my_bg' src='../image/my_bg.png'></image>
+    <view class='my_pic'>
+      <image src='{{userimg}}'></image>
+    </view>
+    <view class="username_wrap">
+      <text class="username">{{username}}</text>
+    </view>
+    <view class='my_order'>
+      <view class='clearfix bor_bot'>
+        <view class='order'>我的订单</view>
+        <view class='all' bindtap='href_all'>查看全部
+          <image src='../image/unfold.png'></image>
+        </view>
+      </view>
+      <view class='order_list'>
+        <view class='order_item' data-index='0' bindtap='jumpOrder' style='margin-left:-14rpx;'>
+          <image src='../image/use.png'></image>
+          <text class='rule'>待使用</text>
+          <text class='msg' wx:if='{{datas.wait_use>0}}'>{{datas.wait_use}}</text>
+        </view>
+        <view class='order_item' data-index='1' bindtap='jumpOrder'>
+          <image src='../image/useed.png'></image>
+          <text class='rule'>已使用</text>
+          <text class='msg' wx:if='{{datas.had_use>0}}'>{{datas.had_use}}</text>
+        </view>
+        <view class='order_item' data-index='2' bindtap='jumpOrder'>
+          <image src='../image/past.png'></image>
+          <text class='rule'>已过期</text>
+          <text class='msg' wx:if='{{datas.had_over>0}}'>{{datas.had_over}}</text>
+        </view>
+        <view class='order_item' data-index='3' bindtap='jumpOrder' style='margin-right:-14rpx;'>
+          <image src='../image/evaluated.png'></image>
+          <text class='rule'>待评价</text>
+          <text class='msg' wx:if='{{datas.wait_talk>0}}'>{{datas.wait_talk}}</text>
+        </view>
+      </view>
+
+    </view>
+  </view>
+  <view class='view_set'>
+    <view class='set_li' bindtap='jump_myshop' wx:if="{{isshare == 1}}">
+      <view class='li_name'>收益中心</view>
+      <image src='../image/unfold.png'></image>
+    </view>
+    <view class='set_li' bindtap='href_er'>
+      <view class='li_name'>优惠券</view>
+      <image src='../image/unfold.png'></image>
+    </view>
+    <view class='set_li' bindtap='href_vip'>
+      <view class='li_name'>vip会员</view>
+      <image src='../image/unfold.png'></image>
+    </view>
+    <view class='set_li' bindtap='href_num'>
+      <view class='li_name'>账号设置</view>
+      <image src='../image/unfold.png'></image>
+    </view>
+    <!-- <view class='set_li' bindtap='href_pwd'>
+      <view class='li_name'>商家</view>
+      <image src='../image/unfold.png'></image>
+    </view> -->
+    <view class='set_li' data-reply-phone="{{datas.phone}}" bindtap="call">
+      <view class='li_name'>联系客服</view>
+      <image src='../image/unfold.png'></image>
+    </view>
+
+    <view class='set_logo'>
+      <image src='http://7xoq3p.com1.z0.glb.clouddn.com/xshop%2F20180808%2F15337242518991.png'></image>
+    </view>
+  </view>
+</view>
+
+<view >
+<!-- <button open-type="getUserInfo" bindgetuserinfo="bindGetUserInfo">点击</button>  -->
+</view>
+<view class='zhe' wx:if="{{condition}}"></view>
+
+<!--初始化加载中-->
+<view class='go_zhe' hidden='{{loadFlag}}'></view>
+<view class='toastt' hidden='{{loadFlag}}'>
+  <image src='../image/load.gif'></image>
+  <view class='text' style='padding:0;'>玩命加载中...</view>
+</view>
+<!-- 授权板块 -->
+<import src="../template/getpower.wxml"/>
+<template is="getpower" data="{{ powerflag , powerimgurl }}"></template>

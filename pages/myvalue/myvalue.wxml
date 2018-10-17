@@ -1,0 +1,23 @@
+<image style="width:100%;height:290rpx ;position:absolute;top:0;left:0;z-index:-1;" src="http://7xoq3p.com1.z0.glb.clouddn.com/xshop%2F20180809%2F15338140504295.jpg"></image>
+<view class="head">
+    <text>累计收益</text>
+    <view>
+        <text>￥</text>
+        <text>{{money}}</text>
+        <text class="carsh" bindtap="carsh">提现</text>
+    </view>
+</view>
+<view class='view_set'>
+    <view class='set_li' bindtap='jump_details'>
+        <view class='li_name'>收益明细</view>
+        <image src='../image/unfold.png'></image>
+    </view>
+    <view class='set_li' bindtap='jump_sort'>
+        <view class='li_name'>收益排行</view>
+        <image src='../image/unfold.png'></image>
+    </view>
+</view>
+
+<!-- 授权板块 -->
+<import src="../template/getpower.wxml"/>
+<template is="getpower" data="{{ powerflag , powerimgurl }}"></template>

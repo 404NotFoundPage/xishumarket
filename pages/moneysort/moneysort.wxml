@@ -1,0 +1,22 @@
+<view class="item" wx:for="{{datas}}" wx:key="index">
+    <view>
+        <view>
+            <image wx:if="{{item.rank == 1}}" class="img_1" src="http://7xoq3p.com1.z0.glb.clouddn.com/xshop%2F20180809%2F15338140778973.jpg"></image>
+            <image wx:if="{{item.rank == 2}}" class="img_1" src="http://7xoq3p.com1.z0.glb.clouddn.com/xshop%2F20180825%2F15351631357771.png"></image>
+            <image wx:if="{{item.rank == 3}}" class="img_1" src="http://7xoq3p.com1.z0.glb.clouddn.com/xshop%2F20180825%2F15351631601363.png"></image>
+            <span wx:if="{{item.rank > 3}}" class="headnum">{{item.rank}}</span>
+            <image class="img_2" src="{{item.headimg}}"></image>
+        </view>
+        <text>{{item.usename}}</text>
+   </view>
+    <view>
+        <text>￥</text>
+        <text>{{item.money}}</text>
+    </view>
+</view>
+
+<!-- 授权板块 -->
+<import src="../template/getpower.wxml"/>
+<template is="getpower" data="{{ powerflag , powerimgurl }}"></template>
+
+

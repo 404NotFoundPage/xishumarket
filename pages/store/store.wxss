@@ -1,0 +1,395 @@
+.content {
+  position: relative;
+  background: #000;
+  padding-bottom: 40rpx;
+  height: 100%;
+}
+.adress_shop{
+  margin-top:36rpx;
+}
+.hiddenScroll {
+  position: relative;
+  width: 100%;
+  background: #000;
+  padding-bottom: 40rpx;
+  height: 100%;
+  overflow: hidden;
+}
+
+page {
+  background: #000;
+  height: 100%;
+}
+
+.header {
+  width: 100%;
+  height: 640rpx;
+  position: relative;
+  overflow: hidden;
+}
+
+@media screen and (max-width: 320px) {
+  .header {
+    height: 600rpx;
+  }
+}
+
+.header .position {
+  width: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+}
+
+.swiper-tab {
+  width: 100%;
+  text-align: center;
+  height: 140rpx;
+  line-height: 176rpx;
+  font-weight: bold;
+}
+
+.swiper-tab-item {
+  display: inline-block;
+  font-size: 28rpx;
+  color: #c7c7c7;
+  width: 33.33%;
+  position: relative;
+}
+
+.active {
+  color: #fff;
+}
+
+.active::after {
+  position: absolute;
+  width: 40rpx;
+  height: 8rpx;
+  border-radius: 10rpx;
+  background: #f9de4a;
+  display: block;
+  content: "";
+  left: 42%;
+  bottom: -50%;
+}
+
+.tab1 {
+  width: 90%;
+  margin: auto;
+  background: #fff;
+  border-radius: 20rpx;
+  margin-top: 40rpx;
+  position: relative;
+  padding-bottom: 20rpx;
+}
+
+.tab {
+  height: 100%;
+  margin-top: -240rpx;
+}
+
+.top_img {
+  height: 380rpx;
+  width: 100%;
+}
+
+.tab_img {
+  width: 100%;
+  height: 380rpx;
+  border-radius: 20rpx 20rpx 0 0;
+}
+
+.icon {
+  position: absolute;
+  top: -10rpx;
+  left: 40rpx;
+}
+
+.icon_num {
+  width: 50rpx;
+  height: 60rpx;
+}
+
+.icon view {
+  width: 50rpx;
+  height: 56rpx;
+  font-size: 26rpx;
+  color: #e3503d;
+  text-align: center;
+  line-height: 56rpx;
+  position: absolute;
+  top: 0;
+  left: 0;
+  font-weight: bold;
+}
+
+.map_icon {
+  width: 16rpx;
+  height: 20rpx;
+  vertical-align: middle;
+  display: inline-block;
+}
+
+.adress {
+  font-size: 24rpx;
+  color: #797979;
+  vertical-align: middle;
+  display: inline-block;
+  padding-left: 14rpx;
+  width: 80%;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+.distance {
+  float: right;
+  color: #646464;
+  font-size: 24rpx;
+  margin-top: -36rpx;
+}
+
+.name_shop {
+  font-size: 32rpx;
+  font-weight: bold;
+  color: #000;
+  float: left;
+  width: calc(100% - 170rpx);
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+.peope {
+  font-size: 24rpx;
+  color: #a2a2a2;
+  float: right;
+  line-height: 42rpx;
+}
+
+.tit_text {
+  padding: 30rpx 20rpx 20rpx 20rpx;
+}
+
+.txt_shop:after {
+  display: block;
+  content: "";
+  clear: both;
+  height: 0;
+}
+
+.bottom_txt span {
+  background: #e3503d;
+  color: #fff;
+  font-size: 24rpx;
+  padding: 0px 4rpx 2rpx 4rpx;
+  margin-right: 14rpx;
+}
+
+.bottom_txt {
+  font-size: 24rpx;
+  color: #000;
+}
+
+.bottom_txt image {
+  width: 10rpx;
+  height: 20rpx;
+  float: right;
+  margin-top: 6rpx;
+}
+
+.h1 {
+  height: 2rpx;
+  width: 100%;
+  background: #f4f4f4;
+  margin: 40rpx 0;
+  clear: both;
+}
+
+.fixed {
+  position: fixed;
+  width: 100rpx;
+  height: 100rpx;
+  background: #f9de4a;
+  border-radius: 50%;
+  right: 6%;
+  bottom: 4%;
+  z-index: 100;
+}
+
+.fixed image {
+  width: 38rpx;
+  height: 36rpx;
+  margin: 20rpx auto 0 auto;
+  display: block;
+}
+
+.fixed view {
+  font-size: 18rpx;
+  color: #000;
+  width: 100%;
+  text-align: center;
+}
+
+/* .modal {
+  position: absolute;
+  width: 100%;
+  top: 0;
+  left: 0;
+  background: rgba(00, 00, 00, 0.3);
+} */
+
+.zhe {
+  position: fixed;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  width: 100%;
+  height: 100%;
+  background-color: #313131;
+  z-index: 150;
+  opacity: 0.9;
+}
+
+.modal_window {
+  position: fixed;
+  width: 80%;
+  height: 600rpx;
+  left: 10%;
+  top: 50%;
+  margin-top: -300rpx;
+  background: #fff;
+  border-radius: 10rpx;
+  z-index: 999;
+}
+
+.yellow_top {
+  height: 190rpx;
+  width: 120%;
+  background: #f9de4a;
+  border-radius: 50%;
+  margin-left: -10%;
+  margin-top: -9%;
+}
+
+.yellow_top image {
+  width: 60rpx;
+  height: 60rpx;
+  margin: auto;
+  display: block;
+  padding-top: 12%;
+}
+
+.admission .title {
+  font-size: 32rpx;
+  font-weight: bold;
+  text-align: center;
+  width: 100%;
+  margin: 20rpx 0;
+  color: #323232;
+}
+
+.txt {
+  font-size: 24rpx;
+  color: #323232;
+  line-height: 150%;
+}
+
+.text {
+  padding: 0 50rpx;
+}
+
+.h1 {
+  width: 100%;
+  height: 2rpx;
+  background: #f4f4f4;
+}
+
+.phne image, .weixin image {
+  width: 40rpx;
+  height: 40rpx;
+  display: inline-block;
+  margin-top: 5rpx;
+}
+
+.phne, .weixin {
+  display: flex;
+  margin-bottom: 30rpx;
+}
+
+.number {
+  font-size: 24rpx;
+  color: #323232;
+  flex: 3;
+  display: inline-block;
+  padding-left: 30rpx;
+  line-height: 50rpx;
+}
+
+.phne button {
+  background: #52cc52;
+  color: #fff;
+}
+
+.weixin button {
+  background: #f9de4a;
+  color: #000;
+}
+
+.phne button, .weixin button {
+  padding: 0;
+  width: 90rpx;
+  height: 50rpx;
+  border: 0;
+  outline: none;
+  line-height: 50rpx;
+  text-align: center;
+  border-radius: 4rpx;
+  font-size: 24rpx;
+  box-sizing: border-box;
+  display: inline-block;
+}
+
+@media screen and (min-height: 667px) {
+  .modal_window {
+    height: 560rpx;
+  }
+}
+
+@media screen and (max-width: 321px) {
+  .yellow_top image {
+    padding-top: 14%;
+  }
+}
+
+.close {
+  width: 60rpx;
+  height: 60rpx;
+  border: 1px solid #fff;
+  border-radius: 50%;
+  position: absolute;
+  box-sizing: border-box;
+  bottom: -100rpx;
+  left: 50%;
+  margin-left: -30rpx;
+  z-index: 100;
+}
+
+.close image {
+  width: 30rpx;
+  height: 30rpx;
+  margin: 13rpx 0 0 13rpx;
+}
+
+.box {
+  width: 100%;
+  height: 150rpx;
+  border-radius: 8rpx;
+  overflow: hidden;
+}
+wiper{
+  height: 600rpx;
+}
+

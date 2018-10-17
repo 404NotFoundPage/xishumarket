@@ -1,0 +1,162 @@
+/**app.wxss**/
+
+.container {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 40 rpx;
+  background: #fff;
+  box-sizing: border-box;
+}
+
+.clearfix:before, .clearfix:after {
+  content: " ";
+  display: block;
+  height: 0;
+  width: 0;
+  clear: both;
+}
+
+::-webkit-scrollbar {
+  display: none;
+}
+
+page {
+  font-family: '微软雅黑';
+}
+
+/*关于请求设置的遮罩  */
+
+.go_zhe {
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  background-color: #fff;
+  z-index: 9999;
+  top: 0;
+  left: 0;
+}
+
+.toastt {
+  position: fixed;
+  width: 200rpx;
+  height: 300rpx;
+  left: 50%;
+  top: 50%;
+  margin-left: -100rpx;
+  margin-top: -150rpx;
+  text-align: center;
+  z-index: 9999;
+}
+
+.toastt>image {
+  width: 100rpx;
+  height: 100rpx;
+}
+
+.toastt>.text {
+  color: #000;
+  font-size: 28rpx;
+  margin-top: 36rpx;
+}
+
+.toast1 {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  left: 0;
+  top: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  z-index: 9999;
+}
+
+.toast1>view>image {
+  width: 100rpx;
+  height: 100rpx;
+}
+
+.toast1>view>.text {
+  color: #000;
+  font-size: 28rpx;
+  margin-top: 36rpx;
+}
+
+/*授权弹窗  */
+
+.model {
+  position: fixed;
+  left: 10%;
+  top: 50%;
+  margin-top: -189rpx;
+  width: 80%;
+  height: 378rpx;
+  background: #fff;
+  text-align: center;
+  border-radius: 30rpx;
+  font-size: 30rpx;
+  z-index: 999;
+}
+
+.modelTitle {
+  padding: 30rpx;
+}
+
+.modelBody {
+  font-size: 26rpx;
+  color: #B2B2B2;
+  padding:20rpx 60rpx;
+  border-top: 2rpx solid #f8f8f8;
+  border-bottom: 2rpx solid #f8f8f8;
+  box-sizing: border-box;
+  text-align: left;
+  line-height: 53rpx;
+}
+
+.btns {  
+  padding: 20rpx;
+  font-size: 30rpx;
+}
+
+.btns>button {
+  background: #fff;
+  border: none;
+  width: 100%;
+  color: #1bba1c;
+  outline:none;
+  list-style: none;
+}
+button::after{
+  border:none;
+}
+button{
+  outline:none;
+  list-style: none;
+  border:none;
+}
+
+/* 回到顶部 */
+#back_top_wrap{
+  position: fixed;
+  right: 40rpx;
+  bottom: 160rpx;
+  width: 100rpx;
+  height: 90rpx;
+  text-align: center;
+  background-color: white;
+  opacity: 0.6;
+  border-radius: 10rpx; 
+}
+#back_top{
+  width: 90rpx;
+  height: 90rpx;
+}
+/* 引入模板样式; */
+@import "pages/template/getpower.wxss"
+
+

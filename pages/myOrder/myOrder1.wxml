@@ -1,0 +1,225 @@
+<view class='cont'>
+    <view class="swiper-tab">
+        <view class="swiper-tab-item {{currentTab==0?'active':''}}" data-id='1' data-current="0" bindtap="clickTab">
+            待使用
+        </view>
+        <view class="swiper-tab-item {{currentTab==1?'active':''}}" data-id='2' data-current="1" bindtap="clickTab">
+            已使用
+        </view>
+        <view class="swiper-tab-item {{currentTab==2?'active':''}}" data-id='12' data-current="2" bindtap="clickTab">
+            已过期
+        </view>
+        <view class="swiper-tab-item {{currentTab==3?'active':''}}" data-id='11' data-current="3" bindtap="clickTab">
+            待评价
+        </view>
+        <view class="swiper-tab-item {{currentTab==4?'active':''}}" data-id='7' data-current="4" bindtap="clickTab">
+            已退款
+        </view>
+    </view>
+    <view class='h20'></view>
+    <swiper class='swip_pic2' style='height:{{winHeight}}rpx;' current="{{currentTab}}" duration="300"
+            bindchange="swiperTab">
+        <swiper-item>
+            <!--待使用-->
+            <view class='swi_p1 '>
+                <view class='con_top clearfix' wx:if="{{condition}}" wx:for='{{datas}}' wx:key='*this'>
+                    <view class='clearfix'>
+                        <view class='con_le'>
+                            <image src='{{item.list_pic_2}}'></image>
+                        </view>
+                        <view class='con_ri clearfix'>
+                            <view class='clearfix'>
+                                <view class='ri_le'>
+                                    <text>{{item.title+'\n套餐仅需'}}{{item.price}}元</text>
+                                </view>
+                                <view class='ri_ri'>
+                                    <view class='ri_sell'>¥ {{item.oldprice}}</view>
+                                    <view class='ri_orgin'>¥{{item.price}}</view>
+                                </view>
+                            </view>
+                            <view class='clearfix menu_view'>
+                                <text class='menu'>火锅套餐</text>
+                                <text class='menu_num'>×{{item.sum}}</text>
+                            </view>
+                        </view>
+                    </view>
+                    <view class='clearfix'>
+                        <view class='all'>合计:
+                            <text class='all_price'>¥ {{item.money}}</text>
+                        </view>
+                        <view class='no_use' bindtap='href_details' data-id='{{item.goodid}}'>{{item.msg}}</view>
+                    </view>
+                </view>
+                <view class='no_data' wx:if='{{none}}'>
+                    <image src='../image/nodata.png'></image>
+                    <view class='tip'>暂无数据</view>
+                    <view class='go_food' bindtap='findgood'>去发现美食吧</view>
+                </view>
+            </view>
+        </swiper-item>
+
+        <swiper-item>
+            <!--已使用-->
+            <view class='swi_p2'>
+                <view class='con_top clearfix' wx:if="{{condition}}" wx:for='{{datas}}' wx:key='*this'>
+                    <view class='clearfix'>
+                        <view class='con_le'>
+                            <image src='{{item.list_pic_2}}'></image>
+                        </view>
+                        <view class='con_ri clearfix'>
+                            <view class='clearfix'>
+                                <view class='ri_le'>
+                                    <text>{{item.title+'\n套餐仅需'}}{{item.price}}元</text>
+                                </view>
+                                <view class='ri_ri'>
+                                    <view class='ri_sell'>¥ {{item.oldprice}}</view>
+                                    <view class='ri_orgin'>¥{{item.price}}</view>
+                                </view>
+                            </view>
+                            <view class='clearfix menu_view'>
+                                <text class='menu'>火锅套餐</text>
+                                <text class='menu_num'>×{{item.sum}}</text>
+                            </view>
+                        </view>
+                    </view>
+                    <view class='clearfix'>
+                        <view class='all'>合计:
+                            <text class='all_price'>¥ {{item.money}}</text>
+                        </view>
+                        <view class='no_use' bindtap='href_details' data-id='{{item.goodid}}'>{{item.msg}}</view>
+                    </view>
+                </view>
+
+                <view class='no_data' wx:if='{{none}}'>
+                    <image src='../image/nodata.png'></image>
+                    <view class='tip'>暂无数据</view>
+                    <view class='go_food' bindtap='findgood'>去发现美食吧</view>
+                </view>
+            </view>
+        </swiper-item>
+
+        <swiper-item>
+            <!--已过期-->
+            <view class='swi_p3'>
+                <view class='con_top clearfix' wx:if="{{condition}}" wx:for='{{datas}}' wx:key='*this'>
+                    <view class='clearfix'>
+                        <view class='con_le'>
+                            <image src='{{item.list_pic_2}}'></image>
+                        </view>
+                        <view class='con_ri clearfix'>
+                            <view class='clearfix'>
+                                <view class='ri_le'>
+                                    <text>{{item.title+'\n套餐仅需'}}{{item.price}}元</text>
+                                </view>
+                                <view class='ri_ri'>
+                                    <view class='ri_sell'>¥ {{item.oldprice}}</view>
+                                    <view class='ri_orgin'>¥{{item.price}}</view>
+                                </view>
+                            </view>
+                            <view class='clearfix menu_view'>
+                                <text class='menu'>火锅套餐</text>
+                                <text class='menu_num'>×{{item.sum}}</text>
+                            </view>
+                        </view>
+                    </view>
+                    <view class='clearfix'>
+                        <view class='all'>合计:
+                            <text class='all_price'>¥ {{item.money}}</text>
+                        </view>
+                        <view class='no_use' bindtap='href_details' data-id='{{item.goodid}}'>{{item.msg}}</view>
+                    </view>
+                </view>
+
+                <view class='no_data' wx:if='{{none}}'>
+                    <image src='../image/nodata.png'></image>
+                    <view class='tip'>暂无数据</view>
+                    <view class='go_food' bindtap='findgood'>去发现美食吧</view>
+                </view>
+
+
+            </view>
+        </swiper-item>
+
+        <swiper-item>
+            <!--待评价-->
+            <view class='swi_p4'>
+                <view class='con_top clearfix' wx:if="{{condition}}" wx:for='{{datas}}' wx:key='*this'>
+                    <view class='clearfix'>
+                        <view class='con_le'>
+                            <image src='{{item.list_pic_2}}'></image>
+                        </view>
+                        <view class='con_ri clearfix'>
+                            <view class='clearfix'>
+                                <view class='ri_le'>
+                                    <text>{{item.title+'\n套餐仅需'}}{{item.price}}元</text>
+                                </view>
+                                <view class='ri_ri'>
+                                    <view class='ri_sell'>¥ {{item.oldprice}}</view>
+                                    <view class='ri_orgin'>¥{{item.price}}</view>
+                                </view>
+                            </view>
+                            <view class='clearfix menu_view'>
+                                <text class='menu'>火锅套餐</text>
+                                <text class='menu_num'>×{{item.sum}}</text>
+                            </view>
+                        </view>
+                    </view>
+                    <view class='clearfix'>
+                        <view class='all'>合计:
+                            <text class='all_price'>¥ {{item.money}}</text>
+                        </view>
+                        <view class='no_use' bindtap='href_evaluate' data-id='{{item.goodid}}'>去评价</view>
+                    </view>
+                </view>
+                <view class='no_data' wx:if="{{none}}">
+                    <image src='../image/nodata.png'></image>
+                    <view class='tip'>暂无数据</view>
+                    <view class='go_food' bindtap='findgood'>去发现美食吧</view>
+                </view>
+            </view>
+        </swiper-item>
+
+        <swiper-item>
+            <!--已退款-->
+            <view class='swi_p5'>
+                <view class='con_top clearfix' wx:if="{{condition}}" wx:for='{{datas}}' wx:key='*this'>
+                    <view class='clearfix'>
+                        <view class='con_le'>
+                            <image src='{{item.list_pic_2}}'></image>
+                        </view>
+                        <view class='con_ri clearfix'>
+                            <view>
+                                <view class='ri_le'>
+                                    <text>{{item.title+'\n套餐仅需'}}{{item.price}}元</text>
+                                </view>
+                                <view class='ri_ri'>
+                                    <view class='ri_sell'>¥ {{item.oldprice}}</view>
+                                    <view class='ri_orgin'>¥{{item.price}}</view>
+                                </view>
+                            </view>
+                            <view class='clearfix menu_view'>
+                                <text class='menu'>火锅套餐</text>
+                                <text class='menu_num'>×{{item.sum}}</text>
+                            </view>
+                        </view>
+                    </view>
+                    <view class='clearfix'>
+                        <view class='all'>合计:
+                            <text class='all_price'>¥ {{item.money}}</text>
+                        </view>
+                        <view class='back'>退款:
+                            <text class='all_price'>¥{{item.back_money}}</text>
+                        </view>
+                        <view class='backed'>{{item.msg}}</view>
+                    </view>
+                </view>
+                <view class='no_data' wx:if="{{none}}">
+                    <image src='../image/nodata.png'></image>
+                    <view class='tip'>暂无数据</view>
+                    <view class='go_food' bindtap='findgood'>去发现美食吧</view>
+                </view>
+            </view>
+        </swiper-item>
+
+    </swiper>
+</view>

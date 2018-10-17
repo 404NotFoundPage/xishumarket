@@ -1,0 +1,111 @@
+<!--index.wxml-->
+<view class="content">
+  <view class='head'>
+    <image src='{{shop.list_pic_1}}' class='barner'></image>
+    <view class='mark'></view>
+    <image src='../image/ju.png' class='ju'></image>
+    <view class='head_mes'>
+      <view class='view_img'>
+        <image src='{{shop.shop_img}}'></image>
+      </view>
+      <p class="title">{{shop.name}}</p>
+      <view class='demo'>
+        <view class='space'></view>
+        <view class='one' data-reply-phone="{{shop.contact_number}}" bindtap="call">
+          <image src='../image/cust.png'></image>
+          <view>预定</view>
+        </view>
+        <view class='two' bindtap="click">
+          <image src='../image/gps.png'></image>
+          <view>导航</view>
+        </view>
+        <view class='thre'>
+          <button data-name="shareBtn" open-type="share" class='share_btn' data-id='{{shop.id}}'></button>
+          <image src='../image/share.png'></image>
+          <view>分享</view>
+        </view>
+        <view class='space'></view>
+      </view>
+    </view>
+  </view>
+  <view class='zation'>
+    <image src='../image/call.png'></image>
+    <button class='btncall' bindtap='callsum'>为好店打call</button>
+    <view class='people'>{{callnum}}人推荐</view>
+  </view>
+
+  <view class='buy' wx:if="{{goods}}">
+    <view class='buy_tit'>限时抢购</view>
+    <ul class="buy_ul">
+      <li class="buy_li">
+        <image src='{{goods.list_pic_2}}'></image>
+        <view class='buy_text'>
+          <view class='buy_txt'>{{goods.title}}</view>
+          <view class='buy_price'>
+            <span>￥{{goods.price}}</span>
+            <i>￥{{goods.oldprice}}</i>
+            <button data-id='{{goods.id}}' bindtap='href_details'>立即抢购</button>
+          </view>
+        </view>
+      </li>
+    </ul>
+  </view>
+  <view class='gray'></view>
+  <view class='guide'>
+    <view class='buy_tit'>商家指南</view>
+    <ul>
+      <li class="buy_lis buy_lix">
+        <image src='../image/time.png'></image>
+        <span>营业时间 :</span>
+        <view>{{shop.opentime}}</view>
+      </li>
+      <li class="buy_lis buy_liy">
+        <image src='../image/ph2.png'></image>
+        <span>商家电话 :</span>
+        <view>{{shop.contact_number}}</view>
+        <button data-reply-phone="{{shop.contact_number}}" bindtap="call">拨打</button>
+      </li>
+      <li class="buy_lis buy_liz" style="position:relative;">
+        <image src='../image/ad.png'></image>
+        <span>商家地址 :</span>
+        <view>{{shop.address}}</view>
+        <button bindtap="click">导航</button>
+      </li>
+    </ul>
+  </view>
+  <view class='gray'></view>
+  <view class='buy_tit'>商家介绍</view>
+  <view class='brief'>
+    <rich-text  nodes='{{shop_tichtext}}'></rich-text>
+  </view>
+  <view class='footer'>
+    <view class='index' bindtap='index_'>
+      <image src='../image/you.png'></image>
+      <text>优选</text>
+    </view>
+    <view class='shop' bindtap='shop_'>
+      <image src='../image/shop-ac.png'></image>
+      <text class='active_txt'>好店</text>
+    </view>
+    <view class='user' bindtap='user_'>
+      <image src='../image/my.png'></image>
+      <text>我的</text>
+    </view>
+  </view>
+</view>
+<!--初始化加载中-->
+<view class='go_zhe' hidden='{{loadFlag}}' class="go_zhe"></view>
+<view class='toastt' hidden='{{loadFlag}}'>
+  <image src='../image/load.gif'></image>
+  <view class='text'>玩命加载中...</view>
+</view>
+<!--请求加载中  -->
+<view class='toast1' hidden='{{loadFlag1}}'>
+  <view>
+    <image src='../image/load.gif'></image>
+    <view class='text'>玩命加载中...</view>
+  </view>
+</view>
+<!-- 授权板块 -->
+<import src="../template/getpower.wxml"/>
+<template is="getpower" data="{{ powerflag , powerimgurl }}"></template>

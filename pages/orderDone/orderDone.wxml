@@ -1,0 +1,56 @@
+<view class="or_cont">
+  <view class="or_msg clearfix">
+    <view class="msg_le">
+      <image src="../image/success.png"></image>
+    </view>
+    <view class="msg_ri">
+      <view class='msg1'>付款成功</view>
+      <view class='msg2'>您的商品已购买成功，记得按时享用哦！</view>
+    </view>
+  </view>
+  <view class="or_info clearfix">
+    <view class="info_le">
+      <image src="http://7xoq3p.com1.z0.glb.clouddn.com/shopb9d9807e158e499389f3ebef504519691530515057.png"></image>
+    </view>
+    <view class="info_mid">
+      <view class='info_name'>
+        <text>{{datas.title}}</text>       
+      </view>
+      <view class='info_com'>{{datas.shortname}}</view>
+    </view>
+    <view class="info_ri">
+      <view class='price_now' wx:if='{{isVip==1}}'>¥ {{datas.price_vip}}</view>
+      <view class='price_now' wx:if='{{isVip==0}}'>¥ {{datas.price}}</view>
+      <view class='price_ori'>￥{{datas.oldprice}}</view>
+      <view class='or_sum'>×{{number}}</view>
+    </view>
+  </view>
+  <view class='or_attention'>找不到订单？现订单统一在西蜀网Aviewview里查看和使用！</view>
+  <view class='or_ul'>
+    订单使用方法
+    <view>① 打开西蜀网Aviewview（若未安装将免费下载安装）</view>
+    <view>② 登录后，选择“我的”页面，在我的订单里查看使用.</view>
+  </view>
+</view>
+<view class='footer'>
+  <view class="ft_le clearfix">
+    <view class="ft_you" bindtap='youxuan'>
+      <image src="../image/you.png"></image>
+      <view>优选</view>
+    </view>
+    <view class="ft_ke" data-reply-phone="0816-2233888" bindtap="call">
+      <image src="../image/cust2.png"></image>
+      <view>客服</view>
+    </view>
+  </view>
+  <view class="ft_ri">
+    打开APP
+  </view>
+</view>
+
+<!--初始化加载中-->
+<view class='go_zhe' hidden='{{loadFlag}}' class="go_zhe"></view>
+<view class='toastt' hidden='{{loadFlag}}'>
+  <image src='../image/load.gif'></image>
+  <view class='text'>玩命加载中...</view>
+</view>

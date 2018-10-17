@@ -1,0 +1,57 @@
+{
+  "pages": [
+    "pages/index/index",
+    "pages/goodDetails/goodDetails",
+    "pages/store/store",
+    "pages/user/user",
+    "pages/bindTel/bindTel",
+    "pages/coupon/coupon",
+    "pages/myOrder/myOrder",
+    "pages/orderDone/orderDone",
+    "pages/seller_info/seller_info",
+    "pages/confirmOrder/confirmOrder",
+    "pages/codeSet/codeSet",
+    "pages/evaluateGoods/evaluateGoods",
+    "pages/vip/vip",
+    "pages/webview/webview",
+    "pages/pwd/pwd",
+    "pages/moneysort/moneysort",
+    "pages/moneydetails/moneydetails",
+    "pages/myvalue/myvalue",
+    "pages/myshops/myshops",
+    "pages/mycustum/mycustum",
+    "pages/cash/cash"
+    
+  ],
+  "window": {
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#fff",
+    "navigationBarTitleText": "西蜀优选",
+    "navigationBarTextStyle": "black"
+  },
+  "tabBar": {
+    "color": "#999999",
+    "selectedColor": "#333333",
+    "backgroundColor": "#fff",
+    "list": [
+      {
+        "pagePath": "pages/index/index",
+        "text": "优选",
+        "iconPath": "pages/image/you.png",
+        "selectedIconPath": "pages/image/my_ac1.png"
+      },
+      {
+        "pagePath": "pages/store/store",
+        "text": "好店",
+        "iconPath": "pages/image/shop.png",
+        "selectedIconPath": "pages/image/shop-ac.png"
+      },
+      {
+        "pagePath": "pages/user/user",
+        "text": "我的",
+        "iconPath": "pages/image/my.png",
+        "selectedIconPath": "pages/image/my_ac.png"
+      }
+    ]
+  }
+}

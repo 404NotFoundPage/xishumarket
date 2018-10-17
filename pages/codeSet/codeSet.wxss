@@ -1,0 +1,37 @@
+.code_list {
+  box-sizing: border-box;
+  width: 100%;
+  padding: 0 40rpx;
+  height: 100rpx;
+  line-height: 100rpx;
+  border-top: 2rpx solid #f8f8f8;
+}
+
+.view_set {
+  background: #fff;
+}
+
+page {
+  background: #f8f8f8;
+}
+
+.code_name {
+  float: left;
+  width: 30%;
+  color: #333;
+  font-size: 28rpx;
+}
+
+.code_ri {
+  float: right;
+  width: 70%;
+  color: #969696;
+  font-size: 28rpx;
+}
+
+.code_ri > image {
+  float: right;
+  width: 11rpx;
+  height: 20rpx;
+  margin-top: 42rpx;
+}

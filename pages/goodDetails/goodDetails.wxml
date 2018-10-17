@@ -1,0 +1,218 @@
+<view class='cont'>
+  <view class='swiper-cls'>
+    <swiper class='swiper_pic1'  circular="true" autoplay='true'  current="{{swiperCurrent}}" bindchange="swiperChange">
+      <swiper-item wx:for="{{datas.pic_carous}}" wx:key="unique">
+        <image src='{{item}}' mode="aspectFill"></image>
+      </swiper-item>
+    </swiper>
+    <!--分享  -->
+    <view class='go_share' bindtap="myshare">
+      <button class='share_btn'></button>
+      <image src="{{ isshare == 1 ? 'http://7xoq3p.com1.z0.glb.clouddn.com/xshop%2F20180810%2F15338671115640.gif' : 'http://7xoq3p.com1.z0.glb.clouddn.com/xshop%2F20180810%2F15338697966968.png' }}"></image>
+    </view>
+    <!-- 图片轮播圆点 -->
+    <view class="dots">
+      <block wx:for="{{datas.pic_carous}}" wx:key="unique">
+        <view class="{{index == swiperCurrent? 'active1' : 'dot'}}"></view>
+      </block>
+    </view>
+  </view>
+
+
+  <view class='go_top'>
+    <view class='go_name'>
+      <text>{{datas.title}}</text>
+    </view>
+    <view class='go_combo'>已售 {{datas.buied}} 份</view>
+    <view class='go_sell'>¥{{datas.price}}</view>
+    <view class='go_orgin'>¥{{datas.oldprice}}</view>
+  </view>
+  <!-- 分销奖励展示 -->
+  <view class="reward" wx:if="{{isshare}}">
+    <text wx:if="{{shareArr.sales_back}}"  bindtap="myshare">{{shareArr.sales_back_words}}</text>
+    <text wx:if="{{shareArr.sec_back}}"  bindtap="myshare">{{shareArr.sec_back_words}}</text>
+  </view>
+
+  <view class='go_activity clearfix' hidden="{{datas.vip_reduce == 0}}">
+    <view class='go_t1'>
+      {{datas.msg}}
+      <text class='go_t2'>{{datas.msg_reduce}}</text>
+    </view>
+    <button wx:if='{{isvip==1?true:false}}' bindtap="govip">进入VIP中心</button>
+    <button wx:if='{{isvip==0?true:false}}' bindtap="govip">升级为VIP</button>
+  </view> 
+  <view class='shop_msg clearfix'>
+    <view class='shop_le'>
+      <image src='{{shop.shop_img}}'></image>
+    </view>
+    <view class='shop_mid'>
+      <text class='mid_name'>{{shop.name}}</text>
+      <text class='mid_addres'>{{shop.address}}</text>
+    </view>
+    <view class='shop_ri'>
+      <image src='../image/gation.png' bindtap='gation' style='margin-right:30rpx;' data-dation='{{shop.coor}}'></image>
+      <image src='../image/tel.png' data-reply-phone="{{shop.contact_number}}" bindtap="call"></image>
+    </view>
+  </view>
+  <view wx:if='{{datas.e_id>0?true:false}}' class='h20'></view>
+  <view class='go_1copy' wx:if='{{datas.e_id>0?true:false}}'>
+    <view class='go_info'>
+      <image src='{{datas.editor_headimg}}'></image>
+      <text class='go_tag'>{{datas.editor_name}}</text>
+      <view>
+        <image src="../image/next_pra.png"></image>
+        <text class='go_intro'>{{datas.content}}</text>
+        <image src="../image/pre_pra.png"></image>
+      </view>
+    </view>
+  </view>
+  <view wx:if='{{datas.e_id>0?true:false}}' class='h20 h20_'></view>
+  <!--选项卡-->
+  <view class="swiper-tab" style=' border-bottom:2rpx solid #f5f5f5;'>
+    <view class="swiper-tab-item {{currentTab==0?'active':''}}" data-current="0" bindtap="clickTab">详情</view>
+    <view class='go_nowork'></view>
+    <view class="swiper-tab-item {{currentTab==1?'active':''}}" data-current="1" bindtap="clickTab">评论</view>
+  </view>
+  <swiper class='swip_pic2' style='height:{{currentTab==0?height:height1}}px; transition:all 0.4s linear;' current="{{currentTab}}" duration="300" bindchange="swiperTab">
+    <swiper-item>
+      <scroll-view class="scoll-h">
+        <view id='swi_p1'>
+          <rich-text  nodes='{{richcontent}}'></rich-text>
+        </view>
+      </scroll-view>
+    </swiper-item>
+    <swiper-item>
+      <scroll-view class="scoll-h">
+        <view id='swi_p2'>
+          <view class='comment_lists clearfix'>
+            <view class='clearfix' wx:for='{{dataCom}}' wx:key='*this' >
+              <image class='comment_user' src='{{item.headimg}}'></image>
+              <view class='user_info'>
+                <view>
+                  <text class='name'>{{item.username}}</text>
+                </view>
+                <view>
+                  <text class='time'>{{item.commenttime}}</text>
+                </view>
+              </view>
+              <view class='evaluate'>{{item.content}}</view>
+              <view class='boxs' wx:if="{{item.picture}}">
+                <view class='eva_pics'>
+                  <image wx:for='{{item.picture}}' wx:for-item="items" data-list="{{item.picture}}" data-src='{{items}}' src='{{items}}' bindtap='imglooks'></image>
+                </view>
+              </view>
+
+            </view>
+
+          </view>
+          <view class='more-msg' wx:if='{{comment}}' bindtap='loadMore'>点击加载更多</view>
+          <view class='none' wx:if='{{none}}'>暂无更多评论</view>
+        </view>
+
+      </scroll-view>
+    </swiper-item>
+
+  </swiper>
+  <view class='go_ft'>
+    <view class='ft_le clearfix'>
+      <view class='fl_you' bindtap="youxuan">
+        <image src='../image/you.png'></image>
+        <view>优选</view>
+      </view>
+      <view class='fl_cus' data-reply-phone="{{datas.phone}}" bindtap="call">
+        <image src='../image/cust2.png'></image>
+        <view>西蜀网客服</view>
+      </view>
+    </view>
+    <view wx:if="{{ datas.re_sum != 0 && isbuy == 1 }}" class="ft_ri" bindtap="href_order">立即购买</view>
+    <view wx:if="{{ datas.re_sum == 0 }}" class="no_pur">已售罄</view>
+    <view wx:if="{{ isbuy == 0 && datas.re_sum > 0 }}" class="no_pur">已结束</view>
+    
+
+  </view>
+</view>
+<!-- 规格 -->
+<view class="standard" animation="{{standard_ani}}" style="z-index:{{stant_index}};">
+  <image bindtap="closestand" class="close_detail" src="../image/close_detail.png"></image>
+  <view class="headinfo">
+    <view>
+      <image src="{{defaultsrc}}"></image>
+    </view>
+    <view>
+      <!-- <text wx:if="{{isvip==1}}">￥{{price_area || price_vip}}元</text>   是会员< -->
+      <text>￥{{price_area || price}}元</text>   <!-- ->不是会员<-->
+      <text>库存{{selectresum}}件</text>
+      <text>{{ selectflag ? "请":"已" }}选择 {{selecttext1}} {{selecttext2}} </text>
+    </view>
+  </view>
+  <view class="bodyone">
+    <view wx:for="{{rules.lev_1p}}" wx:key="index">{{item}}</view>
+    <view>
+      <block wx:for="{{rules.lev_1}}" wx:key="index">
+        <span class="{{ index == activekey ? 'activekey' : ''}}" bindtap="lav_1" data-info="{{rules.lev_1[index]}}" data-key="{{index}}">{{rules.lev_1[index]}}</span>
+      </block>
+    </view>
+  </view>
+  <view wx:if="{{rules.lev_2p}}"  class="bodyone">
+    <view wx:for="{{rules.lev_2p}}" wx:key="index"> {{item}}</view>
+    <view>
+      <block wx:for="{{rules.lev_2}}" wx:key="index">
+        <span class="{{ index == activekey2 ? 'activekey' : ''}}" bindtap="lav_2" data-info="{{rules.lev_2[index]}}" data-key="{{index}}" >{{rules.lev_2[index]}}</span>
+      </block>
+    </view>
+  </view>
+  <view bindtap="confirmpurcher" class="confirmpurcher">确定</view>
+
+</view>
+<!--初始化加载中-->
+<view class='go_zhe' hidden='{{loadFlag}}' class="go_zhe"></view>
+<view class='toastt' hidden='{{loadFlag}}'>
+  <image src='../image/load.gif'></image>
+  <view class='text'>玩命加载中...</view>
+</view>
+<!--请求加载中  -->
+<view class='toast1' hidden='{{loadFlag1}}'>
+  <view>
+    <image src='../image/load.gif'></image>
+    <view class='text'>玩命加载中...</view>
+  </view>
+</view>
+<!-- 分享 -->
+<view class="mask" hidden="{{sharestate}}" catchtouchstart="cancelshare" catchtap="cancelshare" style="opacity:{{Opacity}}"></view>
+<view class="share" animation="{{animate}}" style="height:{{share_height}}">
+  <text>{{shareArr.share_title}}</text>
+  <view>
+    <view>
+      <image src="../image/wechatlogo.png"></image>
+      <button open-type="share" data-name="shareBtn" class="sharebtn"></button>
+      <text>微信朋友</text>
+    </view>
+    <view bindtap="{{ postState ? 'shareposter' : ''}}">
+      <image src="../image/poster.png"></image>
+      <text>海报推荐</text>
+    </view>
+  </view>
+  <view wx:if="{{isshare}}" bindtap="jump_myshop">
+    <text>我的收益中心</text>
+  </view>
+</view>
+
+<view class="poster_wrap" hidden='{{tiptext}}' catchtouchmove="_cancelmove">
+  <view>
+    <image mode="aspectFit" id="posterimage" bindlongpress="longtapsaveImg" src="{{posterimage}}" style="z-index:{{zIndex}}"></image>
+  </view>
+  <text class="longtap" hidden='{{tiptext}}' style="z-index:{{zIndex}}" >长按图片保存海报</text>
+  <view>
+    <image id="closeimg" bindtap="cancelshare" hidden='{{tiptext}}' src="../image/close_detail.png" style="z-index:{{zIndex}}"></image>
+  </view>
+</view>
+<!-- 回到顶部 -->
+<view id="back_top_wrap" style="z-index:{{back_top_zIndex}};opacity:{{back_top_opacity}};transition: all 0.3s linear">
+  <image id="back_top" catchtap="back_top" src="../image/back_top.png"></image>
+</view>
+
+<!-- 授权板块 -->
+<import src="../template/getpower.wxml"/>
+<template is="getpower" data="{{ powerflag , powerimgurl }}"></template>
+
+

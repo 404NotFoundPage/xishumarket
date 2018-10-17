@@ -1,0 +1,21 @@
+<view class='container'>
+  <view class='texta'>
+    <textarea class='good_te' placeholder-class='good_pho' placeholder="说说你对这款商品的看法"  bindblur='getValue' value='{{cont}}' />
+  </view>
+  <view class="section">
+
+    <view style="position:relative"  class='eva_imgs' wx:for="{{imgurl}}" wx:key="index">
+      <image style="position:absolute;top:0;right:0;width:40rpx;height:40rpx;" data-id="{{item}}"  bindtap='clic' src="../image/close_detail.png"></image>
+      <image src='{{item}}' mode="aspectFit"></image>
+    </view>
+
+    <view class='eva_imgs' style='display:flex;justify-content: center;align-items: center;' bindtap='takePicture'>
+        <image class='eva_camera' src="../image/camera.png"></image>
+    </view>
+  </view>
+</view>
+<button class='eva_btn' bindtap='eva' data-id='{{id}}'>发表评价</button>
+
+<!-- 授权板块 -->
+<import src="../template/getpower.wxml"/>
+<template is="getpower" data="{{ powerflag , powerimgurl }}"></template>

@@ -1,0 +1,64 @@
+page {
+  background: #f8f8f8;
+}
+
+.good_te {
+  color: #000;
+  line-height: 48rpx;
+  font-size: 28rpx;
+  padding: 40rpx;
+  box-sizing: border-box;
+  width: 100%;
+}
+
+.texta {
+  width: 100%;
+  border-top: 1rpx solid #f8f8f8;
+  border-bottom: 1rpx solid #f8f8f8;
+}
+
+.section {
+  box-sizing: border-box;
+  width: 100%;
+  padding: 40rpx;
+}
+
+.good_pho {
+  color: #969696;
+}
+
+.eva_imgs {
+  width: 200rpx;
+  height: 200rpx;
+  background-color: #f8f8f8;
+  border-radius: 10rpx;
+  float: left;
+  margin-right: 20rpx;
+  margin-bottom: 40rpx;
+}
+
+.eva_imgs image {
+  width: 200rpx;
+  height: 200rpx;
+}
+
+.eva_camera {
+  width: 66rpx !important;
+  height: 60rpx !important;
+}
+
+.eva_btn {
+  position: absolute;
+  bottom: 60rpx;
+  left: 0rpx;
+  width: 90%;
+  height: 100rpx;
+  line-height: 100rpx;
+  text-align: center;
+  color: #474747;
+  font-family: PingFangSC-Regular;
+  font-size: 32rpx;
+  background-color: #f9de4a;
+  border-radius: 10rpx !important;
+  margin-left: 40rpx
+}

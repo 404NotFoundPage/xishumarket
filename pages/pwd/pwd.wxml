@@ -1,0 +1,17 @@
+<!--pages/pwd/pwd.wxml-->
+<view class='go_share' bindtap="myshare">
+    <button class='share_btn' open-type="share" data-name="shareBtn" ></button>
+    <image src='../image/send.png'></image>
+</view>
+<view hidden="{{ flag }}" class="wrap">
+    <view class="">
+        <input password  bindinput ="userNameInput" type="text" placeholder-style="color:#c09553;font-size:26rpx" placeholder="请输入密码"/>
+    </view>
+    <view bindtap="confirm">
+        <button>确认</button>
+    </view>
+</view>
+<view hidden="{{ !flag }}" style="padding:40rpx 20rpx;text-align:center">{{msg}}</view>
+<!-- 授权板块 -->
+<import src="../template/getpower.wxml"/>
+<template is="getpower" data="{{ powerflag , powerimgurl }}"></template>

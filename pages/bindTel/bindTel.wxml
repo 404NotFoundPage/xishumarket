@@ -1,0 +1,29 @@
+<view class='container' style='height:{{h1}}px'>
+  <view class='bind_row clearfix'>
+    <view class='row1'>
+      <text>手机号码</text>
+    </view>
+    <view class='row2'>
+      <input value='{{tel}}' placeholder-class="phcolor" placeholder="请输入验证码" />
+    </view>
+  </view>
+  <view class='bind_row clearfix'>
+    <view class='row1'>
+      <text>图片验证码</text>
+    </view>
+    <view class='row2'>
+      <input value='{{picode}}' placeholder-class="phcolor" placeholder="请输入验证码" />
+    </view>
+    <view class='bind_random'>PENG</view>
+  </view>
+  <view class='bind_row'>
+    <view class='row1'>
+      <text>短信验证码</text>
+    </view>
+    <view class='row2 clearfix'>
+      <input value='{{code}}' placeholder-class="phcolor" placeholder="请输入验证码" />
+    </view>
+    <button class='bing_yan' bindtap='yan' disabled='{{condition}}'>{{val}}</button>
+  </view>
+  <button class='bind_btn' bindtap='sub'>完成</button>
+</view>

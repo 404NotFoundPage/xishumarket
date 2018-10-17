@@ -1,0 +1,98 @@
+{
+	"description": "项目配置文件。",
+	"packOptions": {
+		"ignore": []
+	},
+	"setting": {
+		"urlCheck": true,
+		"es6": true,
+		"postcss": true,
+		"minified": true,
+		"newFeature": true
+	},
+	"compileType": "miniprogram",
+	"libVersion": "2.2.1",
+	"appid": "wx3ae7ecee45e7dbc8",
+	"projectname": "mini_3",
+	"isGameTourist": false,
+	"condition": {
+		"search": {
+			"current": -1,
+			"list": []
+		},
+		"conversation": {
+			"current": -1,
+			"list": []
+		},
+		"plugin": {
+			"current": -1,
+			"list": []
+		},
+		"game": {
+			"currentL": -1,
+			"list": []
+		},
+		"miniprogram": {
+			"current": 5,
+			"list": [
+				{
+					"id": 0,
+					"name": "分享调试带 shareTicket 的小程序消息卡片",
+					"pathName": "pages/goodDetails/goodDetails",
+					"query": "id=17&fu=4",
+					"scene": "1044",
+					"shareInfo": {
+						"groupName": "测试模拟群0",
+						"shareName": "dEas5SmxtM5etVgC52_aZ0OvrdB14y5vSO8hcT57Ez0@cr4dev",
+						"shareKey": "3nPsJJQtgd7tB1Z_Ck6u61NNNp7IjqVYBsIV6uS52fm6It-hHHj-VHdGIxcResHvLvPyCdVW2Vj9m9YD6XpblA~~"
+					}
+				},
+				{
+					"id": -1,
+					"name": "1",
+					"pathName": "pages/pwd/pwd",
+					"query": "",
+					"scene": "1044",
+					"shareInfo": {
+						"groupName": "测试模拟群2",
+						"shareName": "VDNSqvrRzsRykbGq6FzK1Q_gOJq2oYmXHX0nlwgCgBg@cr4dev",
+						"shareKey": "pcXgNGWXp5ZGxoetu27AIYeuxe2mhJEpQVRmWnxA0JjFkUT-n_ariAMcDl0TzzHbJ5xeiH11mm1F4KWOlFKk2Q~~"
+					}
+				},
+				{
+					"id": 2,
+					"name": "单人调试",
+					"pathName": "pages/goodDetails/goodDetails",
+					"query": "id=6&fu=3",
+					"scene": "1007"
+				},
+				{
+					"id": 3,
+					"name": "二维码编译",
+					"pathName": "pages/goodDetails/goodDetails",
+					"query": "id=12&fu=4",
+					"scene": "1048"
+				},
+				{
+					"id": 4,
+					"name": "小程序码调试2",
+					"pathName": "pages/goodDetails/goodDetails",
+					"query": "id=10&fu=2",
+					"scene": "1048"
+				},
+				{
+					"id": -1,
+					"name": "myshops二维码进入",
+					"pathName": "pages/myshops/myshops",
+					"query": "fu=4",
+					"scene": "1044",
+					"shareInfo": {
+						"groupName": "测试模拟群0",
+						"shareName": "dEas5SmxtM5etVgC52_aZ0OvrdB14y5vSO8hcT57Ez0@cr4dev",
+						"shareKey": "3nPsJJQtgd7tB1Z_Ck6u61NNNp7IjqVYBsIV6uS52fm6It-hHHj-VHdGIxcResHvLvPyCdVW2Vj9m9YD6XpblA~~"
+					}
+				}
+			]
+		}
+	}
+}

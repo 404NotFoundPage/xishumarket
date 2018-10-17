@@ -1,0 +1,96 @@
+<view class="{{condition?'container':'hiddenScroll'}}">
+  <!-- <view class="container"> -->
+  <view class="you_title">西蜀网优选</view>
+  <view class="you_en">Make life more quality</view>
+
+  <view class="you_goods" bindtap='lookSell' wx:for="{{picArr}}" data-id="{{item.id}}" wx:key="unique" style="background:url({{item.mini_pic}}) no-repeat center;background-size:cover;height:{{height}}px">
+    <view class="you_msg" wx:if='{{item.e_id>0?true:false}}'>
+      <view class="msg_le">
+        <image class="msg_pep" src="{{item.headimg}}"></image>
+        <view>
+          <text>{{item.e_name}}</text>
+        </view>
+      </view>
+      <view class="msg_ri clearfix">
+        <image src='../image/msg.png'></image>
+        <!-- <text class='san'></text> -->
+        <text class='msg'>{{item.content}}</text>
+      </view>
+    </view>
+
+    <view class="you_intro clearfix">
+      <view class='title'>
+        <text>{{item.title}}</text>
+      </view>
+      <view class='price'>
+        <view class='pr'>
+          <span>￥</span>
+          <view>{{item.price}}</view>
+        </view>
+        <view class='pri'>
+          <view class='pr_gray'>￥{{item.oldprice}}</view>
+          <view class='bar'>会员价</view>
+        </view>
+      </view>
+
+    </view>
+    <!--信息  -->
+
+  </view>
+  <image class='down' hidden='{{down}}' src='../image/down.png'></image>
+</view>
+
+<view class='zhe' hidden="{{condition}}" bindtouchstart="start"></view>
+<view class='zhe' wx:if="{{showModel}}" bindtouchstart="start"></view>
+
+<!-- <view class="wrap" hidden="{{condition}}" bindtouchstart="touchStart" bindtouchmove="touchMove" bindtouchend="touchEnd" >
+  <view>
+    <swiper indicator-dots="{{false}}"
+      autoplay="{{true}}" interval="{{600}}" duration="{{600}}" circular="{{true}}" vertical="{{true}}">
+      <swiper-item>
+        <image src="../image/bar.png" class="slide-image" />
+      </swiper-item>
+      <swiper-item>
+      </swiper-item>
+      <swiper-item>
+        <image src="../image/bar.png" class="slide-image" />
+      </swiper-item>
+        <swiper-item>
+      </swiper-item>
+    </swiper>
+  </view>
+  <text>滑动探索美好生活</text>
+</view> -->
+
+<view class="wrap" hidden="{{condition}}" bindtouchstart="touchStart" bindtouchmove="touchMove" bindtouchend="touchEnd" >
+  <view class='more modal_window'>
+    <image src='../image/bar.png' animation="{{animation}}"></image>
+  </view>
+  <text>滑动探索美好生活</text>
+</view>
+<!-- 初始化加载中 -->
+<view class='go_zhe' hidden='{{loadFlag}}' class="go_zhe"></view>
+<view class='toastt' hidden='{{loadFlag}}'>
+  <image src='../image/load.gif'></image>
+  <view class='text'>玩命加载中...</view>
+</view>
+<!--请求加载中  -->
+<view class='toast1' hidden='{{loadFlag1}}'>
+  <view>
+    <image src='../image/load.gif'></image>
+    <view class='text'>玩命加载中...</view>
+  </view>
+</view>
+
+<!-- 授权板块 -->
+<import src="../template/getpower.wxml"/>
+<template is="getpower" data="{{ powerflag , powerimgurl }}"></template>
+
+<view class="none" hidden="{{ noinfoflag }}">已经到底啦~~</view>
+
+
+
+
+
+
+

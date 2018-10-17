@@ -1,0 +1,21 @@
+<template name="getpower" >
+
+    <view class='container power' hidden="{{ powerflag }}">
+        <view class='top'>
+            <image class="top_image" src='{{powerimgurl}}'></image>
+            <view class="title_wrap">
+                <text class='title'>西蜀优选</text>
+            </view>
+        </view>
+        <view class='att'>
+            该程序获得以下授权:
+            <view class='_msg'>.获得您的公开信息（昵称和头像等）</view>
+        </view>
+        <view class='btn'>
+            <button class='back' bindtap='index'>回到首页</button>
+            <button class='confi' bindtap="x_config" open-type="getUserInfo" class="agree confi" bindgetuserinfo="b1" lang="zh_CN">
+                确定授权
+            </button>
+        </view>
+    </view>
+</template>

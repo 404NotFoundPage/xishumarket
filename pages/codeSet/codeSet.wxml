@@ -1,0 +1,24 @@
+<view class='view_set'>
+  <view class='code_list' bindtap='href_phone'>
+    <view style="height:100%;">
+      <view class='code_name'>绑定手机号</view>
+      <view class='code_ri'>
+        <image src='../image/unfold.png' style='margin-left:10rpx;'></image>
+        <text style='float:right;'>{{number}}</text>
+      </view>
+    </view>
+  </view>
+  <view class='code_list' bindtap="{{ loginapp == 0 || loginapp == 2 ? 'bind_app':''}}">
+    <view class='code_name'>绑定APP账号</view>
+    <view class='code_ri'>
+      <image src='../image/unfold.png' style='margin-left:10rpx;'></image>
+      <text wx:if="{{ loginapp==1 }}" style='float:right'>{{ username }}</text>
+      <text wx:if="{{ loginapp==0 }}" style='float:right'>未绑定</text>
+      <text wx:if="{{ loginapp==2 }}" style='float:right;color:#de5145'>绑定异常</text>
+    </view>
+  </view>
+</view>
+
+<!-- 授权板块 -->
+<import src="../template/getpower.wxml"/>
+<template is="getpower" data="{{ powerflag , powerimgurl }}"></template>

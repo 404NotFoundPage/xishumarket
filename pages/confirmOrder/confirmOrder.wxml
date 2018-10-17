@@ -1,0 +1,107 @@
+<view class="con" wx:if="{{cshow}}">
+  <view class='con_top clearfix'>
+    <view class='con_le'>
+      <image src='{{datas.list_pic_2}}'></image>
+    </view>
+    <view class='con_ri clearfix'>
+      <view class='clearfix'>
+        <view class='ri_le'>
+          <text>{{datas.title}}</text>
+        </view>
+        <view class='ri_ri'>
+          <view class='ri_sell' wx:if='{{isVip==1}}'>¥ {{ rules.price_vip || datas.price_vip}}</view>
+          <view class='ri_sell' wx:if='{{isVip==0}}'>¥ {{ rules.price || datas.price}}</view>
+          <view class='ri_orgin'>¥{{datas.oldprice}}</view>
+        </view>
+      </view>
+      <view class='clearfix menu_view'>
+        <!-- <text class='menu'>{{datas.shortname}}</text> -->
+        <text class='menu_num'>×{{number}}</text>
+      </view>
+    </view>
+  </view>
+  <view class='con_attention'>{{datas.back_msg}}</view>
+
+  <block wx:for="{{rule_arr}}" wx:for-item="key" wx:key="unique">
+    <view class='con_row clearfix'>
+      <text class='row_text'>{{key[0]}}</text>
+      <view class='con_select row_show' bindtap='show'>
+        <view class="stardant">
+          <text>{{key[1]}}</text>
+          <!-- <text>{{ guige2 ? guige2 :""}}</text> -->
+        </view>
+      </view>
+    </view>
+</block>
+  <view class='con_row clearfix'>
+    <text class='row_text'>数量</text>
+    <text wx:if="{{ datas.limit_buy_sum != 0 }}" style="font-size:24rpx;margin-left:80rpx;">每人限购{{datas.limit_buy_sum}}件</text>
+    <view class='row_show'>
+      <text class='row_symbol' bindtap='reduce'>-</text>
+      <text class='row_sum'>{{number}}</text>
+      <text class='row_symbol' bindtap='add'>+</text>
+    </view>
+  </view>
+  <view class='con_row clearfix'>
+    <text class='row_text'>优惠券</text>
+    <view class='con_select row_show' bindtap='show'>
+      <!-- <text>{{text}}</text> -->
+      <text hidden="{{ text }}" style="font-size:24rpx;margin-left:30rpx;">可用优惠券 {{ useconpon }} 张</text>
+      <text hidden="{{ !text }}">{{text}}</text>
+      <image src='../image/unfold.png'></image>
+    </view>
+  </view>
+  <!-- <view class='con_row1'>
+    <text class='beizhu'>备注信息</text>
+  </view>
+  <view style='margin-left:40rpx;' class='tex' wx:if='{{condition}}'>
+    <textarea placeholder="输入额外订单备注" value='{{textarea}}' bindblur="bindTextAreaBlur" placeholder-style='color: #969696;' />
+  </view> -->
+  <view class='con_ft'>
+    <view class='con_total'>合计：
+      <text>¥ {{ priceall }}</text>
+    </view>
+    <view class='con_pay' bindtap='href_payment'>立即支付</view>
+  </view>
+</view>
+
+<!-- 弹出层   -->
+<view class='zhe' wx:if="{{is_show}}"></view>
+<view class='mask container1 ' wx:if="{{is_show}}">
+  <view class='cou_list clearfix' wx:for='{{datacard}}' wx:key='*this' hidden='{{ priceall < item.limit }}'>
+    <view class='list_le'>
+      <view class='name'>{{item.name}}</view>
+      <view class='time'>有效期：{{item.endtime}}</view>
+      <view class='details'>{{item.uselimit}}</view>
+    </view>
+    <view class='after_'></view>
+    <view class='list_ri'>
+      <view class='money'>¥
+        <text>{{item.value}}</text>
+      </view>
+      <button wx:if='{{ priceall >= item.limit}}' class='btn' disabled='{{ch}}' data-price='{{item.value}}' data-text='{{item.name}}' data-id='{{item.id}}' data-limit='{{item.limit}}' bindtap="select">立即使用</button>
+      <button wx:if='{{ priceall < item.limit}}' class='btn' disabled='{{!ch}}' data-price='{{item.value}}' data-text='{{item.name}}' data-id='{{item.id}}' data-limit='{{item.limit}}' bindtap="select">立即使用</button>
+    </view>
+  </view>
+
+  <button class='close' bindtap="close">关闭</button>
+</view>
+
+<!--初始化加载中-->
+<view class='go_zhe' hidden='{{loadFlag}}' class="go_zhe"></view>
+<view class='toastt' hidden='{{loadFlag}}'>
+  <image src='../image/load.gif'></image>
+  <view class='text'>玩命加载中...</view>
+</view>
+<!--请求加载中  -->
+<view class='toast1' hidden='{{loadFlag1}}'>
+  <view>
+    <image src='../image/load.gif'></image>
+    <view class='text'>玩命加载中...</view>
+  </view>
+</view>
+<!-- 授权板块 -->
+<import src="../template/getpower.wxml"/>
+<template is="getpower" data="{{ powerflag , powerimgurl }}"></template>
+
+
